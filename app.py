@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, jsonify, send_file
 import qrcode
 # io 라이브러리를 통해 메모리에서 파일을 임시로 저장합니다.
 import io
+import os
 
 # Flask 앱 만들기
 app = Flask(__name__)
@@ -37,5 +38,6 @@ def make_qr_code():
 
 # 프로그램 시작
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
 
