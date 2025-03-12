@@ -6,3 +6,4 @@ qrcode==7.3
 
 # 이미지 처리하기
 Pillow==9.0.0 
+gunicorn==20.1.0

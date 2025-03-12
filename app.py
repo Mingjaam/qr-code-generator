@@ -7,15 +7,15 @@ import qrcode
 import io
 
 # Flask 앱 만들기
-my_app = Flask(__name__)
+app = Flask(__name__)
 
 # 메인 페이지
-@my_app.route('/')
+@app.route('/')
 def show_main_page():
     return render_template('index.html')  # HTML 템플릿 렌더링
 
 # QR 코드 생성하기
-@my_app.route('/make_qr', methods=['GET'])
+@app.route('/make_qr', methods=['GET'])
 def make_qr_code():
     # 사용자가 입력한 웹주소 가져오기
     web_address = request.args.get('url')
@@ -37,5 +37,5 @@ def make_qr_code():
 
 # 프로그램 시작
 if __name__ == '__main__':
-    my_app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
